@@ -1,0 +1,31 @@
+def sentiment(positive_text, negative_text, input_text):
+	score = 0
+	positive_text = positive_text.split()
+	negative_text = negative_text.split()
+	input_text = input_text.split()
+	for word in input_text:
+		if word in positive_text:
+			score += 1
+		elif word in negative_text:
+			score -= 1
+	return score
+
+
+def main():
+	print('Sentiment Analyzer 1.0')
+	print('Type \'quit\' to exit.')
+	positive_text = ('happy glad like good praise praises love')
+	negative_text = ('angry mad hate bad fake false hoax lies')
+	input_text = input('Enter Text:')
+	if input_text != 'quit':
+		score = sentiment(positive_text, negative_text, input_text)
+		if score < 0:
+			print(score, 'negative.')
+		elif score > 0:
+			print(score, 'positive.')
+		else:
+			print('0 neutral.')
+		#input_text = input('Enter Text: ')
+
+
+main()
